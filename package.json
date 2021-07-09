@@ -7,7 +7,9 @@
     "test": "jest",
     "start": "node src/server/server.js",
     "build": "webpack --config webpack.prod.js",
-    "dev": "webpack serve  --config webpack.dev.js --open"
+    "devC": "webpack serve  --config webpack.dev.js --open",
+    "devS": "nodemon --watch config --watch src/server --watch src/client/js src/server/server.js"
+
   },
   "keywords": [],
   "author": "",

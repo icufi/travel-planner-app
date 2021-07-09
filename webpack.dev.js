@@ -13,6 +13,7 @@ module.exports = {
   devtool: "source-map",
   stats: "verbose",
   devServer: {
+    contentBase: 'dist',
     hot: true
   },
   module: {
