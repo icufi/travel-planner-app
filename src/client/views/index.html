@@ -7,10 +7,15 @@
   </head>
   <body>
     <div id="app">
-      <div class="holder headline">Weather Journal</div>
-      <div class="holder zip">
-        <label for="zip">Check Local Weather</label>
-        <input type="text" id="zip" placeholder="enter your zip code" />
+      <div class="holder headline">Travel Journal</div>
+      <div class="holder city">
+        <label for="city">Check Local Weather</label>
+        <input type="text" id="city" placeholder="enter your city" />
+      </div>
+      <div class="holder date">Travel Date</div>
+      <div class="holder date">
+        <label for="date">What Day Are You Traveling</label>
+        <input type="date" id="dateField" value="2021-07-08" />
       </div>
       <div class="holder feel">
         <label for="feelings">How are you feeling today?</label>
@@ -27,9 +32,11 @@
           <div id="date"></div>
           <div id="temp"></div>
           <div id="content"></div>
+          <div id="travelDate"></div>
+          <div id="daysCountdown"></div>
         </div>
       </div>
     </div>
-    
+
   </body>
 </html>

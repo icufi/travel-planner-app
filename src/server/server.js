@@ -30,15 +30,18 @@ const server = app.listen(port, () =>
 
 //get and post route for receiving and sending data from app.js
 app.get("/projectdata", (req, res) => res.send(projectData));
-app.post("/weatherdata", saveWeather);
+app.post("/travelinfo", saveWeather);
 
 //callback function to save data received from app.js to projectData array
 function saveWeather(req, res) {
   let data = req.body;
+  console.log(data)
   let newEntry = {
-    temperature: data.temperature,
-    date: data.date,
-    feeling: data.feeling,
+    longitude: data.long,
+    latitude: data.lat,
+    country: data.country,
+    travelDate: data.travelDate,
+    daysCountdown: data.daysCountdown
   };
   projectData.push(newEntry);
 }
