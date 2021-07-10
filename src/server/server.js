@@ -37,11 +37,11 @@ function saveWeather(req, res) {
   let data = req.body;
   console.log(data)
   let newEntry = {
-    longitude: data.long,
-    latitude: data.lat,
+    city: data.city,
     country: data.country,
     travelDate: data.travelDate,
     daysCountdown: data.daysCountdown
   };
   projectData.push(newEntry);
+  console.log(projectData);
 }
