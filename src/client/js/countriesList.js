@@ -1,4 +1,6 @@
-document.getElementById('countriesList').innerHTML = `<form><select id="country" name="country">
+document.getElementById(
+  "countriesList"
+).innerHTML = `<form><select id="country" name="country">
 <option>select country</option>
 <option value="US">United States</option>
 <option value="AF">Afghanistan</option>
@@ -254,4 +256,3 @@ document.getElementById('countriesList').innerHTML = `<form><select id="country"
 <option value="ZM">Zambia</option>
 <option value="ZW">Zimbabwe</option></select>
 </form>`;
-

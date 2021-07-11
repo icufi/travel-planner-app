@@ -7,24 +7,25 @@
   </head>
   <body>
     <div id="app">
-      <div class="holder headline">Travel Journal</div>
-      <div class="holder city">
-        <label for="city">Check Local Weather</label>
-        <input type="text" id="city" placeholder="enter your city" />
+      <div class="headline">Plan Your Trip</div>
+      <div class="city">
+        <label for="city">Check Destination Weather</label>
+        <input type="text" id="city" placeholder="Destination City" />
+        <h3>Select Destination Country</h3>
         <div id="countriesList"></div>
       </div>
-      <div class="holder date">Travel Date</div>
-      <div class="holder date">
-        <label for="date">What Day Are You Traveling</label>
+      <h3>Travel Date</h3>
+      <div class="date">
+        <label for="date">What Day Are You Traveling?</label>
         <input type="date" id="dateField" value="2021-07-08" />
       </div>
-      <div class="holder feel">
+      <!-- <div class="holder feel">
         <label for="feelings">How are you feeling today?</label>
         <textarea
           class="myInput"
           id="feelings"
           placeholder="tell us here"
-        ></textarea>
+        ></textarea> -->
         <button id="generate" type="submit">Go</button>
       </div>
       <img id="cityImage" src="" alt="">
