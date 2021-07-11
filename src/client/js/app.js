@@ -2,7 +2,9 @@
 const geoAPIKey = "&maxRows=1&username=icufishmg";
 const geoBaseURL = "http://api.geonames.org/searchJSON?q=";
 const weatherbitAPIKey = "&key=1d235b160c6c4917b499388daca9bc82";
-const weatherbitBaseURL = "https://api.weatherbit.io/v2.0/forecast/daily?";
+const weatherbitBaseURL = "https://api.weatherbit.io/v2.0/normals?";
+const pixabayAPIKey = "key=22010688-d7e3c3ffcac39b9c48e1a3a8d";
+const pixabayBaseURL = "https://pixabay.com/api/?";
 
 
 
@@ -16,26 +18,30 @@ document.getElementById("generate").addEventListener("click", performAction);
 // callback function called by event listener
 function performAction(e) {
   const dateT = document.getElementById("dateField").value;
-  const travelDate = [dateT.slice(-4), dateT.slice(0,4)].join('-');
+  const travelDate = [dateT.slice(-5), dateT.slice(0,4)].join('-');
+  const travelDur = [dateT.slice(-5)].join('-');
 
-  console.log(travelDate);
+  console.log(travelDur);
   const userResponse = document.getElementById("feelings").value;
-  const city = document.getElementById("city").value;
+  const city = document.getElementById("city").value.trim();
   const checkDate = new Date(travelDate).getTime();
   const daysCountdown = Math.round(((checkDate - d.getTime()) / (1000*60*60*24)+1))
 
 
 
   //api call chained with server.js call and UI update of data from api and user
-  getCoords(geoBaseURL, city, geoAPIKey).then(function (weatherData) {
+  getCoords(geoBaseURL, city, geoAPIKey, travelDur).then(function (appData) {
 
 
     postData("/travelinfo", {
-      city: weatherData.city_name,
-      country: weatherData.country_code,
+      city: appData.geonames[0].name,
+      country: appData.geonames[0].countryName,
+      highTemp: appData.data[0].max_temp,
+      precip: appData.data[0].precip,
+      minTemp: appData.data[0].min_temp,
       travelDate: travelDate,
       daysCountdown: daysCountdown,
-    }).then(updateUI());
+    }).then(updateUI()).then(fetchImg(pixabayAPIKey, pixabayBaseURL, city));
   });
 }
 
@@ -44,17 +50,34 @@ let d = new Date();
 
 let newDate = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
 
+const fetchImg = async (pixabayAPIKey, pixabayBaseURL, city) => {
+  const res = await fetch(`${pixabayBaseURL}${pixabayAPIKey}&q=${city}+city&image_type=photo`);
+  console.log(`${pixabayBaseURL}${pixabayAPIKey}&q=${city}+city&image_type=photo`)
+  try {
+    const cityImg = await res.json();
+    console.log(cityImg);
+    document.getElementById("cityImage").src=cityImg.hits[0].webformatURL;
+
+  } catch (error) {
+    console.log(error, "error")
+  }
+};
+
 //api call function
-const getCoords = async (geoBaseURL, city, geoAPIKey) => {
+const getCoords = async (geoBaseURL, city, geoAPIKey, travelDur) => {
   const res = await fetch(geoBaseURL + city + geoAPIKey);
   try {
     const data = await res.json();
-    // const long = data.geonames[0].lng;
-    // const lat = data.geonames[0].lat;
-    const weatherRes = await fetch(`${weatherbitBaseURL}&lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}${weatherbitAPIKey}`);
+    // console.log(data);
+    const weatherRes = await fetch(`${weatherbitBaseURL}&lat=${data.geonames[0].lat}&lon=${data.geonames[0].lng}&start_day=${travelDur}&end_day=${travelDur}&tp=daily${weatherbitAPIKey}&units=I`);
     const weatherData = await weatherRes.json();
-    console.log(weatherData);
-    return weatherData;
+    const appData = {
+      ...data,
+      ...weatherData
+    }
+    console.log(appData);
+    console.log(appData.geonames[0].countryName);
+    return appData;
   } catch (error) {
     console.log("error", error);
   }
@@ -83,9 +106,15 @@ const updateUI = async () => {
     document.getElementById("date").innerHTML = `City: ${
       allData.slice(-1)[0].city
     }`;
-    // document.getElementById("temp").innerHTML = `Longitude: ${
-    //   allData.slice(-1)[0].longitude
-    // }`;
+    document.getElementById("highTemp").innerHTML = `High Temperature: ${
+      allData.slice(-1)[0].highTemp
+    }`;
+    document.getElementById("minTemp").innerHTML = `Low Temperature: ${
+      allData.slice(-1)[0].minTemp
+    }`;
+    document.getElementById("precip").innerHTML = `Precipitation: ${
+      allData.slice(-1)[0].precip
+    }`;
     document.getElementById("travelDate").innerHTML = `Travel Date: ${
       allData.slice(-1)[0].travelDate
     }`;

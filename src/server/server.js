@@ -39,6 +39,9 @@ function saveWeather(req, res) {
   let newEntry = {
     city: data.city,
     country: data.country,
+    highTemp: data.highTemp,
+    minTemp: data.minTemp,
+    precip: data.precip,
     travelDate: data.travelDate,
     daysCountdown: data.daysCountdown
   };
