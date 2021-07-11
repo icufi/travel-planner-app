@@ -41,7 +41,7 @@ function performAction(e) {
       minTemp: appData.data[0].min_temp,
       travelDate: travelDate,
       daysCountdown: daysCountdown,
-    }).then(updateUI()).then(fetchImg(pixabayAPIKey, pixabayBaseURL, city));
+    }).then(fetchImg(pixabayAPIKey, pixabayBaseURL, city)).then(updateUI());
   });
 }
 
@@ -57,6 +57,7 @@ const fetchImg = async (pixabayAPIKey, pixabayBaseURL, city) => {
     const cityImg = await res.json();
     console.log(cityImg);
     document.getElementById("cityImage").src=cityImg.hits[0].webformatURL;
+    document.getElementById("cityImage").alt=cityImg.hits[0].tags;
 
   } catch (error) {
     console.log(error, "error")
