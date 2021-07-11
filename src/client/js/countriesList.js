@@ -1,5 +1,6 @@
 document.getElementById('countriesList').innerHTML = `<form><select id="country" name="country">
 <option>select country</option>
+<option value="US">United States</option>
 <option value="AF">Afghanistan</option>
 <option value="AX">Aland Islands</option>
 <option value="AL">Albania</option>
