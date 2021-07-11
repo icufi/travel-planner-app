@@ -60,8 +60,8 @@ let d = new Date();
 let newDate = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
 
 const imageCall = async (pixabayAPIKey, pixabayBaseURL, city, textCountry) => {
-  const res = await fetch(`${pixabayBaseURL}${pixabayAPIKey}&q=${city}&image_type=photo`);
-  console.log(`${pixabayBaseURL}${pixabayAPIKey}&q=${textCountry}&image_type=photo`)
+  const res = await fetch(`${pixabayBaseURL}${pixabayAPIKey}&q=${city}&category=places&image_type=photo`);
+  console.log(`${pixabayBaseURL}${pixabayAPIKey}&q=${city}&category=places&image_type=photo`)
   try {
     const cityImg = await res.json();
     if (cityImg.total === 0) {
