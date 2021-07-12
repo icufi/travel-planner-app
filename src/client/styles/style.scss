@@ -14,20 +14,26 @@ h3 {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: green;
+  // background-color: green;
 }
 
 .headline {
-  font-size: 66px;
+  font-size: 88px;
   color: white;
   font-weight: 400;
 }
 
-// .app-image {
-// background: url("../media/images/maldives.jpg");
-// }
+.grid-1 {
+// background-color: indigo;
+margin: 40px 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 
-.app {
+}
+
+.grid-2 {
   height: 100vh;
   display: flex;
   align-items: center;
