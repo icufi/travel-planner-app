@@ -13,11 +13,14 @@ module.exports = {
   devtool: "source-map",
   stats: "verbose",
   devServer: {
-    overlay: true,
     hot: true
   },
   module: {
     rules: [
+      // {
+      //   test: /\.(png\jp?g\gif\svg)$/i,
+      //   type: "asset/resources"
+      // },
       {
         test: "/.js$/",
         exclude: /node_modules/,

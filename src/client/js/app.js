@@ -135,28 +135,32 @@ const updateUI = async () => {
   try {
     const allData = await request.json();
     console.log(allData);
+    document.querySelector(".inputColumn").innerHTML = "";
     document.getElementById("entry").className = "holderResponse";
-    document.getElementById("content").innerHTML = `Country: ${
-      allData.slice(-1)[0].country
-    }`;
-    document.getElementById("date").innerHTML = `City: ${
+    document.getElementById("tripTitle").innerHTML = `My Trip To: ${
       allData.slice(-1)[0].city
-    }`;
-    document.getElementById("highTemp").innerHTML = `High Temperature: ${
-      allData.slice(-1)[0].highTemp
-    }`;
-    document.getElementById("minTemp").innerHTML = `Low Temperature: ${
-      allData.slice(-1)[0].minTemp
-    }`;
-    document.getElementById("precip").innerHTML = `Precipitation: ${
-      allData.slice(-1)[0].precip
-    }`;
-    document.getElementById("travelDate").innerHTML = `Travel Date: ${
+    }, ${
+      allData.slice(-1)[0].country
+    } `;
+    document.getElementById("travelDate").innerHTML = `Departing On: ${
       allData.slice(-1)[0].travelDate
     }`;
-    document.getElementById("daysCountdown").innerHTML = `Days Until Travel: ${
+    document.getElementById("daysCountdown").innerHTML = `${
+      allData.slice(-1)[0].city
+    } is ${
       allData.slice(-1)[0].daysCountdown
+    } days away.`;
+
+    document.getElementById("typicalWeather").innerHTML = `Typical temperatures in ${
+      allData.slice(-1)[0].city
+    } for my travel date are a high of ${
+      allData.slice(-1)[0].highTemp
+    } with a low of ${
+      allData.slice(-1)[0].minTemp
+    } and an expected precipitation of ${
+      allData.slice(-1)[0].precip
     }`;
+
   } catch (error) {
     console.log("error", error);
   }
