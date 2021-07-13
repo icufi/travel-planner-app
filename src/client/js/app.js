@@ -115,6 +115,7 @@ const getCoords = async (
     return appData;
   } catch (error) {
     console.log("error", error);
+    alert("That location does not exist.");
   }
 };
 

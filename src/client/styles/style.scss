@@ -157,7 +157,7 @@ h3 {
 .typicalW {
   font-size: 20px;
   font-weight: 600;
-  padding: 5px 10px;
+  // padding: 5px 10px;
 }
 
 .returnImage {
@@ -165,6 +165,10 @@ h3 {
   border-radius: 6px;
   max-width: 600px;
 }
+
+
+
+
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label {
   display: block;
@@ -200,4 +204,12 @@ button:focus {
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: black;
+}
+
+
+@media screen and (max-width: 768px) {
+
+
+
+
 }
