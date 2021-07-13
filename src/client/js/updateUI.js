@@ -1,4 +1,4 @@
-//update UI with data from API calls
+// update UI with data from API calls
 const updateUI = async () => {
   const request = await fetch('/projectdata');
   try {
@@ -15,7 +15,7 @@ const updateUI = async () => {
       allData.slice(-1)[0].city
     } is ${allData.slice(-1)[0].daysCountdown} days away.`;
 
-    document.getElementById('typicalWeather').innerHTML = `Typical Weather:`;
+    document.getElementById('typicalWeather').innerHTML = 'Typical Weather:';
     document.getElementById('high').innerHTML = `High: ${
       allData.slice(-1)[0].highTemp
     }°F`;
@@ -26,8 +26,10 @@ const updateUI = async () => {
       allData.slice(-1)[0].precip
     }"`;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log('error', error);
   }
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { updateUI };
