@@ -87,7 +87,7 @@ h3 {
     font-size: 19px;
     background-color: $txtFldColor;
     height: 42px;
-    width: 150px;
+    width: 200px;
     &:hover {
       background-color: white;
     }
@@ -157,7 +157,8 @@ h3 {
 .typicalW {
   font-size: 20px;
   font-weight: 600;
-  // padding: 5px 10px;
+  padding: 5px 10px;
+  white-space: nowrap;
 }
 
 .returnImage {
@@ -208,8 +209,6 @@ button:focus {
 
 
 @media screen and (max-width: 768px) {
-
-
 
 
 }
