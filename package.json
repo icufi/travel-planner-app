@@ -8,8 +8,8 @@
     "start": "node src/server/server.js",
     "build": "webpack --config webpack.prod.js",
     "devc": "webpack serve  --config webpack.dev.js --open",
-    "devs": "nodemon --watch config --watch src/server --watch src/client/js src/server/server.js"
-
+    "devs": "nodemon --watch config --watch src/server --watch src/client/js src/server/server.js",
+    "lint": "./node_modules/.bin/eslint app.js countries.js postData.js updateUI.js index.js server.js"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,13 @@
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.6",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
@@ -34,6 +41,7 @@
     "mini-css-extract-plugin": "^2.1.0",
     "node-sass": "^6.0.1",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "prettier": "^2.3.2",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
     "terser-webpack-plugin": "^5.1.4",
