@@ -6,15 +6,22 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 h3 {
   color: white;
   font-size: 32px;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+// .grid-container {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+// }
 
 .headline {
   font-size: 70px;
@@ -23,28 +30,28 @@ h3 {
   margin: 0px;
 }
 
-.grid-1 {
-  background-color: indigo;
-  margin: 40px 40px;
-  display: flex;
-  align-items: center;
-  justify-content:flex-start;
-  flex-direction: column;
-  padding-top: 25px;
-}
+// .grid-1 {
+//   background-color: indigo;
+//   margin: 40px 40px;
+//   display: flex;
+//   align-items: center;
+//   justify-content:flex-start;
+//   flex-direction: column;
+//   padding-top: 25px;
+// }
 
-.grid-2 {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  font-size: 20px;
-  background-color: #549797;
-  margin: 40px 40px;
-  border-radius: 6px;
-  padding-top: 25px;
-}
+// .grid-2 {
+//   height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+//   flex-direction: column;
+//   font-size: 20px;
+//   background-color: #549797;
+//   margin: 40px 40px;
+//   border-radius: 6px;
+//   padding-top: 25px;
+// }
 
 .inputColumn {
   display: flex;
@@ -122,27 +129,29 @@ h3 {
 
 
 #tripTitle {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 32px;
   padding:10px 0px;
 }
 
 #travelDate {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 32px;
   padding: 10px 0px;
 }
 
 #daysCountdown {
-  font-size: 26;
+  font-size: 26px;
   font-weight: 600;
   padding: 10px 0px;
 }
 
 #typicalWeather {
-  font-size: 26;
+  font-size: 26px;
   font-weight: 600;
-  padding-right: 20px;
+  // padding-right: 20px;
+  // padding-bottom: 20px;
+  padding: 10px 20px 20px 0px;
 }
 
 .typicalW {
@@ -152,6 +161,7 @@ h3 {
 }
 
 .returnImage {
+  padding-top: 20px;
   border-radius: 6px;
   max-width: 600px;
 }
