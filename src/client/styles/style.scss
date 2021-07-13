@@ -14,38 +14,36 @@ h3 {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  // background-color: green;
 }
 
 .headline {
-  font-size: 88px;
+  font-size: 70px;
   color: white;
   font-weight: 400;
+  margin: 0px;
 }
 
 .grid-1 {
-// background-color: indigo;
-margin: 40px 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-
+  background-color: indigo;
+  margin: 40px 40px;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  flex-direction: column;
+  padding-top: 25px;
 }
 
 .grid-2 {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
-  // grid-gap: 2em;
   font-size: 20px;
   background-color: #549797;
-  // padding: 40px;
   margin: 40px 40px;
   border-radius: 6px;
-  padding-bottom: 40px;
+  padding-top: 25px;
 }
 
 .inputColumn {
@@ -89,10 +87,6 @@ flex-direction: column;
   }
 }
 
-.entry {
-  background: rgba(59, 74, 107, 0.4);
-}
-
 #generate {
   width: 32vw;
   height: 100px;
@@ -111,16 +105,55 @@ flex-direction: column;
   }
 }
 
-.outputColumn {
+// .outputColumn {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// }
+
+#entryHolder {
+  padding: 35px 55px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+
+#tripTitle {
+  font-weight: 700;
+  font-size: 32px;
+  padding:10px 0px;
+}
+
+#travelDate {
+  font-weight: 700;
+  font-size: 32px;
+  padding: 10px 0px;
+}
+
+#daysCountdown {
+  font-size: 26;
+  font-weight: 600;
+  padding: 10px 0px;
+}
+
+#typicalWeather {
+  font-size: 26;
+  font-weight: 600;
+  padding-right: 20px;
+}
+
+.typicalW {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 5px 10px;
 }
 
 .returnImage {
   border-radius: 6px;
   max-width: 600px;
-
 }
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label {
@@ -136,25 +169,6 @@ input {
   border: none;
 }
 
-
-// h1 {
-//   font-size: 36px;
-// }
-
-// textarea {
-//   background: #f8f8ff6e;
-//   font-size: 20px;
-//   border-radius: 6px;
-//   height: 60px;
-//   backdrop-filter: blur(10px);
-//   &:hover {
-//     background-color: white;
-//   }
-// }
-
-// textarea:hover {
-//   background-color: white;
-// }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
@@ -176,16 +190,4 @@ button:focus {
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: black;
-}
-
-.holderResponse {
-  background-color: rgba(255, 255, 255, 0.692);
-  backdrop-filter: blur(4px);
-  border-radius: 20px;
-  padding: 10px 90px;
-  font-weight: 600;
-}
-
-.holder.entry {
-  display: none;
 }

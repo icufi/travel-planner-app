@@ -135,7 +135,8 @@ const updateUI = async () => {
   try {
     const allData = await request.json();
     console.log(allData);
-    document.querySelector(".inputColumn").innerHTML = "";
+    const inputColumn = document.querySelector(".inputColumn");
+    inputColumn.remove();
     document.getElementById("entry").className = "holderResponse";
     document.getElementById("tripTitle").innerHTML = `My Trip To: ${
       allData.slice(-1)[0].city
@@ -151,15 +152,16 @@ const updateUI = async () => {
       allData.slice(-1)[0].daysCountdown
     } days away.`;
 
-    document.getElementById("typicalWeather").innerHTML = `Typical temperatures in ${
-      allData.slice(-1)[0].city
-    } for my travel date are a high of ${
+    document.getElementById("typicalWeather").innerHTML = `Typical Weather:`;
+    document.getElementById("high").innerHTML = `High: ${
       allData.slice(-1)[0].highTemp
-    } with a low of ${
+    }°F`;
+    document.getElementById("low").innerHTML = `Low: ${
       allData.slice(-1)[0].minTemp
-    } and an expected precipitation of ${
+    }°F`;
+    document.getElementById("precipitation").innerHTML = `Precipitation: ${
       allData.slice(-1)[0].precip
-    }`;
+    }"`;
 
   } catch (error) {
     console.log("error", error);
