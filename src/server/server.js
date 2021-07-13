@@ -28,6 +28,7 @@ app.use(express.static('dist'));
 const port = 8000;
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-console
+// eslint-disable-next-line no-unused-vars
 const server = app.listen(port, () => console.log(`server is listening on port ${port}`));
 
 // callback function to save data received from app.js to projectData array
@@ -51,3 +52,5 @@ function saveWeather(req, res) {
 // get and post route for receiving and sending data from app.js
 app.get('/projectdata', (req, res) => res.send(projectData));
 app.post('/travelinfo', saveWeather);
+
+

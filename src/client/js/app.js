@@ -43,6 +43,8 @@ async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
 // eslint-disable-next-line no-use-before-define
 document.getElementById('generate').addEventListener('click', performAction);
 
+const countdown = (checkDate) => Math.round((checkDate - d.getTime()) / (1000 * 60 * 60 * 24) + 1);
+
 // callback function called by event listener
 function performAction() {
   const dateT = document.getElementById('dateField').value;
@@ -53,9 +55,8 @@ function performAction() {
   const destCountry = listCountry.options[listCountry.selectedIndex].value;
   const textCountry = listCountry.options[listCountry.selectedIndex].text;
   const checkDate = new Date(travelDate).getTime();
-  const daysCountdown = Math.round(
-    (checkDate - d.getTime()) / (1000 * 60 * 60 * 24) + 1,
-  );
+  console.log(checkDate);
+  const countdownDate = countdown(checkDate);
 
   // api call chained with server.js call and UI update of data from api and user
   getCoords(geoBaseURL, city, geoAPIKey, travelDur, destCountry).then(
@@ -67,7 +68,7 @@ function performAction() {
         precip: appData.data[0].precip,
         minTemp: appData.data[0].min_temp,
         travelDate,
-        daysCountdown,
+        daysCountdown: countdownDate,
       })
         .then(imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry))
         .then(updateUI());
@@ -77,3 +78,4 @@ function performAction() {
 
 // eslint-disable-next-line import/prefer-default-export
 export { performAction };
+export { countdown };
