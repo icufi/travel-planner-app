@@ -2,7 +2,7 @@
 import './countriesList';
 import { updateUI } from './updateUI';
 import { postData } from './postData';
-import { getCoords } from './getCoords';
+import getCoords from './getCoords';
 
 /* Global Variables */
 const geoAPIKey = '&maxRows=1&username=icufishmg';
@@ -18,17 +18,16 @@ const d = new Date();
 // eslint-disable-next-line no-shadow
 async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
   const res = await fetch(
-    `${pixabayBaseURL}${pixabayAPIKey}&q=${city}&category=places&image_type=photo`
+    `${pixabayBaseURL}${pixabayAPIKey}&q=${city}&category=places&image_type=photo`,
   );
   try {
     const cityImg = await res.json();
     if (cityImg.total === 0) {
       const resBackup = await fetch(
-        `${pixabayBaseURL}${pixabayAPIKey}&q=${textCountry}&image_type=photo`
+        `${pixabayBaseURL}${pixabayAPIKey}&q=${textCountry}&image_type=photo`,
       );
       const countryIMG = await resBackup.json();
-      document.getElementById('cityImage').src =
-        countryIMG.hits[0].webformatURL;
+      document.getElementById('cityImage').src = countryIMG.hits[0].webformatURL;
       document.getElementById('cityImage').alt = countryIMG.hits[0].tags;
     } else {
       document.getElementById('cityImage').src = cityImg.hits[0].webformatURL;
@@ -41,10 +40,11 @@ async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
 }
 
 // event listener that initiates api call;
+// eslint-disable-next-line no-use-before-define
 document.getElementById('generate').addEventListener('click', performAction);
 
 // callback function called by event listener
-function performAction(e) {
+function performAction() {
   const dateT = document.getElementById('dateField').value;
   const travelDate = [dateT.slice(-5), dateT.slice(0, 4)].join('-');
   const travelDur = [dateT.slice(-5)].join('-');
