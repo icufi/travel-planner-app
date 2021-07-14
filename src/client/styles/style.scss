@@ -1,7 +1,7 @@
 $txtFldColor: rgb(253, 212, 176);
 
 body {
-  background-color: rgb(204, 204, 204);
+  background-color: rgb(185, 185, 185);
   background-size: cover;
   font-family: 'Poppins', sans-serif;
 }
@@ -18,40 +18,12 @@ h3 {
   font-size: 32px;
 }
 
-// .grid-container {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-// }
-
 .headline {
   font-size: 70px;
   color: white;
   font-weight: 400;
   margin: 0px;
 }
-
-// .grid-1 {
-//   background-color: indigo;
-//   margin: 40px 40px;
-//   display: flex;
-//   align-items: center;
-//   justify-content:flex-start;
-//   flex-direction: column;
-//   padding-top: 25px;
-// }
-
-// .grid-2 {
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: flex-start;
-//   flex-direction: column;
-//   font-size: 20px;
-//   background-color: #549797;
-//   margin: 40px 40px;
-//   border-radius: 6px;
-//   padding-top: 25px;
-// }
 
 .inputColumn {
   display: flex;
@@ -112,13 +84,6 @@ h3 {
   }
 }
 
-// .outputColumn {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-// }
-
 #entryHolder {
   padding: 35px 55px;
   display: flex;
@@ -148,8 +113,6 @@ h3 {
 #typicalWeather {
   font-size: 26px;
   font-weight: 600;
-  // padding-right: 20px;
-  // padding-bottom: 20px;
   padding: 10px 20px 20px 0px;
 }
 
