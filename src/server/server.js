@@ -52,5 +52,3 @@ function saveWeather(req, res) {
 // get and post route for receiving and sending data from app.js
 app.get('/projectdata', (req, res) => res.send(projectData));
 app.post('/travelinfo', saveWeather);
-
-

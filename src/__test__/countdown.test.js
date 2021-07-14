@@ -1,8 +1,17 @@
 
-// import { test } from "jest-circus";
-import { countdown } from "../client/js/app";
+import { countdown } from '../client/js/countdown';
 
-test('testing countdown function', () => {
-  const date = 1628143200000;
-  expect(countdown(date)).toBe(23);
+
+
+
+  describe("checks how many days before trip", () => {
+    test("converts to days", () =>
+    {
+        const input = 1628143200000;
+        const output = 23;
+        expect(countdown(input)).toBe(output);
+
+    });
+
+
 });

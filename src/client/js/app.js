@@ -3,6 +3,7 @@ import './countriesList';
 import { updateUI } from './updateUI';
 import { postData } from './postData';
 import getCoords from './getCoords';
+import { countdown } from './countdown';
 
 /* Global Variables */
 const geoAPIKey = '&maxRows=1&username=icufishmg';
@@ -43,7 +44,7 @@ async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
 // eslint-disable-next-line no-use-before-define
 document.getElementById('generate').addEventListener('click', performAction);
 
-const countdown = (checkDate) => Math.round((checkDate - d.getTime()) / (1000 * 60 * 60 * 24) + 1);
+
 
 // callback function called by event listener
 function performAction() {
@@ -78,4 +79,4 @@ function performAction() {
 
 // eslint-disable-next-line import/prefer-default-export
 export { performAction };
-export { countdown };
+
