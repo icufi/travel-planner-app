@@ -1,3 +1,4 @@
+// imported functions
 /* eslint-disable linebreak-style */
 import './countriesList';
 import { updateUI } from './updateUI';
@@ -12,9 +13,7 @@ export const weatherbitBaseURL = 'https://api.weatherbit.io/v2.0/normals?';
 const pixabayAPIKey = 'key=22010688-d7e3c3ffcac39b9c48e1a3a8d';
 const pixabayBaseURL = 'https://pixabay.com/api/?';
 
-// Create a new date instance dynamically
-// const d = new Date();
-
+// geonames api call chained with weatherbit api call
 async function getCoords(
   // eslint-disable-next-line no-shadow
   geoBaseURL,
@@ -46,6 +45,7 @@ async function getCoords(
   }
 }
 
+// pixabay api call funtion
 // eslint-disable-next-line no-shadow
 async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
   const res = await fetch(
@@ -53,6 +53,7 @@ async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
   );
   try {
     const cityImg = await res.json();
+    // if no images available of city then return image of country
     if (cityImg.total === 0) {
       const resBackup = await fetch(
         `${pixabayBaseURL}${pixabayAPIKey}&q=${textCountry}&image_type=photo`,
@@ -70,7 +71,7 @@ async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
   }
 }
 
-// event listener that initiates api call;
+// event listener that initiates api calls and date functionality;
 // eslint-disable-next-line no-use-before-define
 document.getElementById('generate').addEventListener('click', performAction);
 
@@ -86,7 +87,7 @@ function performAction() {
   const checkDate = new Date(travelDate).getTime();
   const countdownDate = countdown(checkDate);
 
-  // api call chained with server.js call and UI update of data from api and user
+  // api call chained with server.js post and UI update of data from api and server side memory
   getCoords(geoBaseURL, city, geoAPIKey, travelDur, destCountry).then(
     (appData) => {
       postData('/travelinfo', {

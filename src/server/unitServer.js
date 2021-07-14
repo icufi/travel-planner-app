@@ -1,3 +1,5 @@
+// test functionality of get request with launching express server
+
 // Require Express to run server and routes
 const express = require('express');
 

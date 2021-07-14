@@ -1,4 +1,4 @@
-// update UI with data from API calls
+// update UI with data from API calls, dates, and saved server side array
 const updateUI = async () => {
   const request = await fetch('/projectdata');
   try {

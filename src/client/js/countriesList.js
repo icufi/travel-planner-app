@@ -1,3 +1,5 @@
+// countries drop down menu with country code for geonames api call
+
 document.getElementById(
   'countriesList',
 ).innerHTML = `<form><select id="country" name="country">
