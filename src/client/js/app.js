@@ -56,7 +56,6 @@ function performAction() {
   const destCountry = listCountry.options[listCountry.selectedIndex].value;
   const textCountry = listCountry.options[listCountry.selectedIndex].text;
   const checkDate = new Date(travelDate).getTime();
-  console.log(checkDate);
   const countdownDate = countdown(checkDate);
 
   // api call chained with server.js call and UI update of data from api and user
