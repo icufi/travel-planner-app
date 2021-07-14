@@ -13,7 +13,7 @@ const pixabayAPIKey = 'key=22010688-d7e3c3ffcac39b9c48e1a3a8d';
 const pixabayBaseURL = 'https://pixabay.com/api/?';
 
 // Create a new date instance dynamically
-const d = new Date();
+// const d = new Date();
 
 async function getCoords(
   // eslint-disable-next-line no-shadow
@@ -46,7 +46,6 @@ async function getCoords(
   }
 }
 
-
 // eslint-disable-next-line no-shadow
 async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
   const res = await fetch(
@@ -74,8 +73,6 @@ async function imageCall(pixabayAPIKey, pixabayBaseURL, city, textCountry) {
 // event listener that initiates api call;
 // eslint-disable-next-line no-use-before-define
 document.getElementById('generate').addEventListener('click', performAction);
-
-
 
 // callback function called by event listener
 function performAction() {
@@ -109,4 +106,3 @@ function performAction() {
 
 // eslint-disable-next-line import/prefer-default-export
 export { performAction };
-

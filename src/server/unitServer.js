@@ -14,8 +14,6 @@ unitServer.use(bodyParser.json());
 
 const weather = [64, 54, 32, 82];
 
-unitServer.get('/projectData', (req, res) => {
-    return res.json(weather);
-});
+unitServer.get('/projectData', (req, res) => res.json(weather));
 
 module.exports = unitServer;
