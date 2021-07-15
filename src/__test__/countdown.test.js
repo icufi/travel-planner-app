@@ -5,7 +5,7 @@ import { countdown } from '../client/js/countdown';
 describe('checks how many days before trip', () => {
   test('converts to days', () => {
     const input = 1628143200000;
-    const output = 23;
+    const output = 21;
     expect(countdown(input)).toBe(output);
   });
 });
